@@ -5,15 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Aggressive Cache Control Meta Tags -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0, s-maxage=0" />
+    <!-- Cache Control Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta http-equiv="Last-Modified" content="Wed, 06 Nov 2024 18:00:00 GMT" />
-    <meta name="cache-control" content="no-cache, no-store, must-revalidate, max-age=0" />
-    <meta name="expires" content="0" />
-    <meta name="pragma" content="no-cache" />
-    <meta http-equiv="refresh" content="0; url=" />
     
     <!-- Critical CSS for Bottom Navigation -->
     <style>
@@ -90,41 +85,7 @@
         }
     </style>
     
-    <!-- Force CSS Reload Script -->
-    <script>
-        // Immediate cache fix
-        (function() {
-            console.log('🔄 Emergency CSS fix loading...');
-            
-            // Clear all CSS cache
-            const allLinks = document.querySelectorAll('link[rel="stylesheet"]');
-            allLinks.forEach(link => {
-                if (link.href.includes('styles')) {
-                    link.remove();
-                }
-            });
-            
-            // Load fresh CSS
-            const timestamp = Date.now();
-            const cssLink = document.createElement('link');
-            cssLink.rel = 'stylesheet';
-            cssLink.href = 'styles-new.css?v=5.0&force=1&t=' + timestamp + '&nocache=true&emergency=1';
-            cssLink.onload = function() {
-                console.log('✅ Fresh CSS loaded');
-            };
-            document.head.appendChild(cssLink);
-            
-            // Clear localStorage
-            try {
-                Object.keys(localStorage).forEach(key => {
-                    if (key.includes('cache') || key.includes('texna')) {
-                        localStorage.removeItem(key);
-                    }
-                });
-            } catch(e) {}
-            
-        })();
-    </script>
+
 
     <!-- SEO Meta Tags -->
     <title>Texna - Leading Jacquard Harness Systems Manufacturer | 35+ Years Experience</title>
@@ -171,7 +132,7 @@
     <link rel="prefetch" href="products.html">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles-new.css?v=6.0&noreviews=1&t=1730900000&nocache=true">
+    <link rel="stylesheet" href="styles.css?v=7.0&simple=1">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -525,7 +486,7 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="script-simple.js"></script>
 
 
 </body>
