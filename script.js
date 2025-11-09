@@ -1,772 +1,687 @@
-// ===== TEXNA WEBSITE - REBUILT JAVASCRIPT =====
-// Modern, Clean, and Optimized JavaScript
+// ===== TEXNA MOBILE WEBSITE - STEP BY STEP BUILD =====
 
-'use strict';
+// Simple JavaScript for mobile website
+console.log('🚀 Texna Mobile Website Loading...');
 
-// ===== GLOBAL VARIABLES =====
-let currentSlide = 0;
-let slideInterval;
-
-// ===== UTILITY FUNCTIONS =====
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
-
-const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-};
-
-const throttle = (func, limit) => {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
-};
-
-// ===== DOMAIN COMPATIBILITY =====
-function initializeDomainCompatibility() {
-    const currentDomain = window.location.origin;
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✅ Texna Mobile Website Loaded Successfully');
     
-    // Update canonical URL
-    const canonicalLink = $('link[rel="canonical"]');
-    if (canonicalLink) {
-        canonicalLink.href = currentDomain + window.location.pathname;
-    }
+    // Add any mobile-specific functionality here as we build
+    initializeMobileFeatures();
+});
+
+// Initialize mobile-specific features
+function initializeMobileFeatures() {
+    // Add touch-friendly interactions
+    addTouchSupport();
     
-    // Update Open Graph URLs
-    const ogUrl = $('meta[property="og:url"]');
-    if (ogUrl) {
-        ogUrl.content = currentDomain + window.location.pathname;
-    }
-    
-    // Update Open Graph images
-    const ogImage = $('meta[property="og:image"]');
-    if (ogImage && ogImage.content === '') {
-        if (window.location.pathname.includes('products')) {
-            ogImage.content = currentDomain + '/Products Photos/Products-1.webp';
-        } else {
-            ogImage.content = currentDomain + '/Texna Machine.webp';
-        }
-    }
-    
-    // Update Twitter image
-    const twitterImage = $('meta[name="twitter:image"]');
-    if (twitterImage && twitterImage.content === '') {
-        twitterImage.content = currentDomain + '/Texna Machine.webp';
-    }
-    
-    // Update structured data
-    const structuredDataScript = $('script[type="application/ld+json"]');
-    if (structuredDataScript) {
-        try {
-            const data = JSON.parse(structuredDataScript.textContent);
-            if (data.url === '') {
-                data.url = currentDomain;
-            }
-            if (data.logo === '') {
-                data.logo = currentDomain + '/SVG/Texna Logo.svg';
-            }
-            structuredDataScript.textContent = JSON.stringify(data, null, 4);
-        } catch (e) {
-            console.log('Could not update structured data:', e);
-        }
-    }
+    // Log device info for debugging
+    logDeviceInfo();
 }
 
-// ===== HERO BANNER SLIDER =====
-function initializeSlider() {
-    const slides = $$('.banner-slide');
-    const indicators = $$('.indicator');
-    
-    if (slides.length === 0) return;
-    
-    function showSlide(index) {
-        // Remove active class from all slides and indicators
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
-        
-        // Add active class to current slide and indicator
-        if (slides[index]) {
-            slides[index].classList.add('active');
+// Add touch support for better mobile experience
+function addTouchSupport() {
+    // Prevent zoom on double tap for better UX
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
         }
-        if (indicators[index]) {
-            indicators[index].classList.add('active');
-        }
-        
-        currentSlide = index;
-    }
-    
-    function nextSlide() {
-        const nextIndex = (currentSlide + 1) % slides.length;
-        showSlide(nextIndex);
-    }
-    
-    function startSlideshow() {
-        slideInterval = setInterval(nextSlide, 4000);
-    }
-    
-    function stopSlideshow() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
-    }
-    
-    // Initialize first slide
-    showSlide(0);
-    
-    // Add click handlers to indicators
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            stopSlideshow();
-            showSlide(index);
-            startSlideshow();
-        });
-    });
-    
-    // Start automatic slideshow
-    startSlideshow();
-    
-    // Pause on hover (desktop only)
-    const banner = $('.hero-banner');
-    if (banner && window.innerWidth >= 1024) {
-        banner.addEventListener('mouseenter', stopSlideshow);
-        banner.addEventListener('mouseleave', startSlideshow);
-    }
-    
-    // Pause when page is not visible
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stopSlideshow();
-        } else {
-            startSlideshow();
-        }
-    });
+        lastTouchEnd = now;
+    }, false);
 }
 
-// Make slide functions global for HTML onclick handlers
-window.currentSlideIndex = function(index) {
-    const slides = $$('.banner-slide');
-    if (slides.length > 0) {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
-        
-        // Remove active from all
-        slides.forEach(slide => slide.classList.remove('active'));
-        $$('.indicator').forEach(indicator => indicator.classList.remove('active'));
-        
-        // Add active to selected
-        if (slides[index - 1]) {
-            slides[index - 1].classList.add('active');
-        }
-        if ($$('.indicator')[index - 1]) {
-            $$('.indicator')[index - 1].classList.add('active');
-        }
-        
-        currentSlide = index - 1;
-        
-        // Restart slideshow
-        slideInterval = setInterval(() => {
-            const nextIndex = (currentSlide + 1) % slides.length;
-            window.currentSlideIndex(nextIndex + 1);
-        }, 4000);
-    }
-};
-
-
-
-// ===== NAVIGATION =====
-function initializeNavigation() {
-    // Set active navigation item based on current page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+// Log device information for debugging
+function logDeviceInfo() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const userAgent = navigator.userAgent;
     
-    // Update desktop navigation
-    $$('.desktop-nav-item').forEach(item => {
-        const link = item.querySelector('a');
-        if (link) {
-            const href = link.getAttribute('href');
-            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        }
-    });
-    
-    // Update bottom navigation
-    $$('.nav-item').forEach(item => {
-        const link = item.querySelector('a');
-        if (link) {
-            const href = link.getAttribute('href');
-            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        }
-    });
+    console.log('📱 Device Info:');
+    console.log('Screen Width:', screenWidth + 'px');
+    console.log('Screen Height:', screenHeight + 'px');
+    console.log('User Agent:', userAgent);
 }
 
-// ===== HAMBURGER MENU =====
-function initializeMenu() {
-    const menuBtn = $('.menu-btn');
-    const menuOverlay = $('.menu-overlay');
-    const hamburgerMenu = $('.hamburger-menu');
-    const menuClose = $('.menu-close');
-    const menuItems = $$('.menu-item');
+// ===== HAMBURGER MENU FUNCTIONALITY =====
+function toggleMenu() {
+    const menuOverlay = document.getElementById('menuOverlay');
     
-    if (!menuBtn) return;
-    
-    function openMenu() {
-        if (menuOverlay) menuOverlay.classList.add('active');
-        if (hamburgerMenu) hamburgerMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    if (!menuOverlay) {
+        console.error('❌ Menu overlay not found');
+        return;
     }
     
-    function closeMenu() {
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        if (hamburgerMenu) hamburgerMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    const isActive = menuOverlay.classList.contains('active');
     
-    // Event listeners
-    menuBtn.addEventListener('click', openMenu);
-    
-    if (menuClose) {
-        menuClose.addEventListener('click', closeMenu);
-    }
-    
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMenu);
-    }
-    
-    // Close menu when clicking menu items
-    menuItems.forEach(item => {
-        item.addEventListener('click', closeMenu);
-    });
-    
-    // Close menu on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeMenu();
-        }
-    });
-}
-
-// ===== BACK BUTTON =====
-function initializeBackButton() {
-    const backBtn = $('.back-btn');
-    
-    if (!backBtn) return;
-    
-    // Check if there's history to go back to
-    if (window.history.length <= 1) {
-        backBtn.disabled = true;
-        backBtn.style.opacity = '0.5';
-        backBtn.style.cursor = 'not-allowed';
-    }
-    
-    backBtn.addEventListener('click', () => {
-        if (window.history.length > 1) {
-            window.history.back();
-        } else {
-            window.location.href = 'index.html';
-        }
-    });
-}
-
-// ===== SEARCH FUNCTIONALITY =====
-function initializeSearch() {
-    const searchInput = $('.search-input');
-    const searchBtn = $('.search-btn');
-    const resultsContainer = $('.results-container');
-    
-    if (!searchInput || !searchBtn) return;
-    
-    // Sample search data (in a real app, this would come from an API)
-    const searchData = [
-        {
-            title: 'Guide Board',
-            description: 'High-quality guide board designed for precise yarn guidance and smooth loom operation.',
-            type: 'Product',
-            image: 'Products Photos/Products-1.webp',
-            link: 'product-detail.html?product=guide-board'
-        },
-        {
-            title: 'Harness Cord',
-            description: 'Durable harness cord for reliable textile machinery operation.',
-            type: 'Product',
-            image: 'Products Photos/Products-2.webp',
-            link: 'product-detail.html?product=harness-cord'
-        },
-        {
-            title: 'Installation Services',
-            description: 'Professional installation services for all textile machinery.',
-            type: 'Service',
-            image: 'service-installation.webp',
-            link: 'services.html#installation'
-        },
-        {
-            title: 'Maintenance Services',
-            description: '24/7 maintenance and support services for your textile equipment.',
-            type: 'Service',
-            image: 'service-maintenance.webp',
-            link: 'services.html#maintenance'
-        }
-    ];
-    
-    function performSearch(query) {
-        if (!query.trim()) {
-            showNoResults();
-            return;
-        }
-        
-        const results = searchData.filter(item => 
-            item.title.toLowerCase().includes(query.toLowerCase()) ||
-            item.description.toLowerCase().includes(query.toLowerCase()) ||
-            item.type.toLowerCase().includes(query.toLowerCase())
-        );
-        
-        displayResults(results, query);
-    }
-    
-    function displayResults(results, query) {
-        if (!resultsContainer) return;
-        
-        if (results.length === 0) {
-            showNoResults(query);
-            return;
-        }
-        
-        const resultsHTML = `
-            <div class="results-section">
-                <h2 class="results-title">Search Results for "${query}" (${results.length})</h2>
-                <div class="results-grid">
-                    ${results.map(result => `
-                        <div class="search-result-item" onclick="window.location.href='${result.link}'">
-                            <img src="${result.image}" alt="${result.title}" class="result-image" 
-                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzQzNzcwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UZXhuYTwvdGV4dD48L3N2Zz4='">
-                            <div class="result-type">${result.type}</div>
-                            <h3 class="result-title">${result.title}</h3>
-                            <p class="result-description">${result.description}</p>
-                            <a href="${result.link}" class="result-link">View Details →</a>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-        
-        resultsContainer.innerHTML = resultsHTML;
-    }
-    
-    function showNoResults(query = '') {
-        if (!resultsContainer) return;
-        
-        const noResultsHTML = `
-            <div class="no-results">
-                <div class="no-results-icon">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
-                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
-                        <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>No Results Found</h3>
-                <p>${query ? `No results found for "${query}". ` : ''}Try searching for products, services, or company information.</p>
-            </div>
-        `;
-        
-        resultsContainer.innerHTML = noResultsHTML;
-    }
-    
-    // Event listeners
-    searchBtn.addEventListener('click', () => {
-        const query = searchInput.value.trim();
-        performSearch(query);
-    });
-    
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            const query = searchInput.value.trim();
-            performSearch(query);
-        }
-    });
-    
-    // Auto-search with debounce
-    searchInput.addEventListener('input', debounce((e) => {
-        const query = e.target.value.trim();
-        if (query.length >= 2) {
-            performSearch(query);
-        } else if (query.length === 0) {
-            showNoResults();
-        }
-    }, 300));
-}
-
-// ===== PRODUCT DETAIL PAGE =====
-function initializeProductDetail() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('product');
-    
-    if (!productId) return;
-    
-    // Sample product data (in a real app, this would come from an API)
-    const products = {
-        'guide-board': {
-            title: 'Guide Board',
-            image: 'Products Photos/Products-1.webp',
-            description: 'High-quality guide board designed for precise yarn guidance and smooth loom operation. Manufactured with premium materials to ensure durability and consistent performance in textile manufacturing processes.',
-            features: [
-                'Precision-engineered for optimal performance',
-                'Durable construction for long-lasting use',
-                'Compatible with various loom types',
-                'Easy installation and maintenance',
-                'Corrosion-resistant materials'
-            ]
-        },
-        'harness-cord': {
-            title: 'Harness Cord',
-            image: 'Products Photos/Products-2.webp',
-            description: 'Premium harness cord designed for reliable textile machinery operation. Made from high-grade materials to withstand continuous use in demanding industrial environments.',
-            features: [
-                'High tensile strength',
-                'Excellent durability',
-                'Smooth operation',
-                'Various sizes available',
-                'Quality tested materials'
-            ]
-        }
-    };
-    
-    const product = products[productId];
-    
-    if (product) {
-        // Update page content
-        const titleElement = $('#product-title');
-        const imageElement = $('#main-product-image');
-        const descriptionElement = $('#product-description');
-        
-        if (titleElement) titleElement.textContent = product.title;
-        if (imageElement) {
-            imageElement.src = product.image;
-            imageElement.alt = product.title;
-        }
-        if (descriptionElement) descriptionElement.textContent = product.description;
-        
-        // Update page title
-        document.title = `${product.title} - Texna`;
-        
-        // Update meta description
-        const metaDescription = $('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.content = product.description;
-        }
-    }
-}
-
-// ===== PRODUCTS PAGE =====
-function initializeProductsPage() {
-    const productsContainer = $('.products-container');
-    
-    if (!productsContainer) return;
-    
-    // Sample products data
-    const products = [
-        {
-            id: 'guide-board',
-            title: 'Guide Board',
-            description: 'High-quality guide board designed for precise yarn guidance and smooth loom operation.',
-            image: 'Products Photos/Products-1.webp',
-            category: 'Machinery Parts'
-        },
-        {
-            id: 'harness-cord',
-            title: 'Harness Cord',
-            description: 'Durable harness cord for reliable textile machinery operation.',
-            image: 'Products Photos/Products-2.webp',
-            category: 'Accessories'
-        },
-        {
-            id: 'comber-board',
-            title: 'Comber Board',
-            description: 'Precision comber board for enhanced textile processing efficiency.',
-            image: 'Products Photos/Products-3.webp',
-            category: 'Machinery Parts'
-        },
-        {
-            id: 'wire-healds',
-            title: 'Wire Healds (Raj)',
-            description: 'Premium wire healds for superior weaving performance.',
-            image: 'Products Photos/Products-4.webp',
-            category: 'Weaving Components'
-        }
-    ];
-    
-    // Generate products HTML
-    const productsHTML = products.map(product => `
-        <div class="product-card" onclick="window.location.href='product-detail.html?product=${product.id}'">
-            <div class="product-image-container">
-                <img src="${product.image}" alt="${product.title}" class="product-image"
-                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzQzNzcwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UZXhuYTwvdGV4dD48L3N2Zz4='">
-                <div class="product-category">${product.category}</div>
-            </div>
-            <div class="product-content">
-                <h3 class="product-title">${product.title}</h3>
-                <p class="product-description">${product.description}</p>
-                <a href="product-detail.html?product=${product.id}" class="view-details-btn">View Details</a>
-            </div>
-        </div>
-    `).join('');
-    
-    productsContainer.innerHTML = productsHTML;
-}
-
-// ===== PERFORMANCE OPTIMIZATIONS =====
-function optimizeImages() {
-    // Lazy loading for images
-    const images = $$('img[loading="lazy"]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src || img.src;
-                    img.classList.remove('lazy');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        images.forEach(img => imageObserver.observe(img));
-    }
-}
-
-function preloadCriticalResources() {
-    // Preload critical images
-    const criticalImages = [
-        '01.webp',
-        'SVG/Texna Logo.svg'
-    ];
-    
-    criticalImages.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
-        document.head.appendChild(link);
-    });
-}
-
-// ===== ERROR HANDLING =====
-function handleErrors() {
-    // Global error handler
-    window.addEventListener('error', (e) => {
-        console.error('JavaScript Error:', e.error);
-        // In production, you might want to send this to an error tracking service
-    });
-    
-    // Unhandled promise rejection handler
-    window.addEventListener('unhandledrejection', (e) => {
-        console.error('Unhandled Promise Rejection:', e.reason);
-        e.preventDefault();
-    });
-}
-
-// ===== ANALYTICS & TRACKING =====
-function initializeAnalytics() {
-    // Track page views
-    if (typeof gtag !== 'undefined') {
-        gtag('config', 'GA_MEASUREMENT_ID', {
-            page_title: document.title,
-            page_location: window.location.href
-        });
-    }
-    
-    // Track user interactions
-    document.addEventListener('click', throttle((e) => {
-        const target = e.target.closest('a, button');
-        if (target) {
-            const action = target.textContent.trim() || target.alt || 'Click';
-            console.log('User interaction:', action);
-            // Send to analytics service
-        }
-    }, 1000));
-}
-
-// ===== ACCESSIBILITY ENHANCEMENTS =====
-function enhanceAccessibility() {
-    // Add skip links
-    const skipLink = $('.skip-link');
-    if (skipLink) {
-        skipLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = $(skipLink.getAttribute('href'));
-            if (target) {
-                target.focus();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
-    
-    // Keyboard navigation for sliders
-    document.addEventListener('keydown', (e) => {
-        if (e.target.classList.contains('indicator')) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                e.target.click();
-            }
-        }
-    });
-    
-    // Focus management for menu
-    const menuBtn = $('.menu-btn');
-    const menuClose = $('.menu-close');
-    
-    if (menuBtn && menuClose) {
-        menuBtn.addEventListener('click', () => {
-            setTimeout(() => menuClose.focus(), 100);
-        });
-        
-        menuClose.addEventListener('click', () => {
-            menuBtn.focus();
-        });
-    }
-}
-
-// ===== EMERGENCY CACHE FIX =====
-function forceReloadCSS() {
-    console.log('🔄 Force reloading CSS...');
-    
-    // Remove existing stylesheet
-    const existingLink = document.querySelector('link[href*="styles.css"]');
-    if (existingLink) {
-        existingLink.remove();
-    }
-    
-    // Create new stylesheet link with timestamp
-    const newLink = document.createElement('link');
-    newLink.rel = 'stylesheet';
-    newLink.href = `styles.css?v=5.0&force=1&t=${Date.now()}&nocache=true&reload=1`;
-    document.head.appendChild(newLink);
-    
-    // Also clear localStorage cache flags
-    Object.keys(localStorage).forEach(key => {
-        if (key.startsWith('texna_cache')) {
-            localStorage.removeItem(key);
-        }
-    });
-    
-    console.log('✅ CSS force reloaded');
-}
-
-function detectLayoutIssues() {
-    // Wait for DOM to be ready
-    setTimeout(() => {
-        const bottomNav = document.querySelector('.bottom-nav');
-        if (bottomNav) {
-            const computedStyle = window.getComputedStyle(bottomNav);
-            const position = computedStyle.position;
-            const bottom = computedStyle.bottom;
-            
-            console.log('Bottom nav position:', position, 'bottom:', bottom);
-            
-            // If bottom nav is not fixed at bottom, force reload CSS
-            if (position !== 'fixed' || bottom !== '0px') {
-                console.warn('⚠️ Layout issue detected - forcing CSS reload');
-                forceReloadCSS();
-                
-                // Try again after a delay
-                setTimeout(() => {
-                    const newStyle = window.getComputedStyle(bottomNav);
-                    if (newStyle.position !== 'fixed' || newStyle.bottom !== '0px') {
-                        console.warn('⚠️ Still having issues - reloading page');
-                        window.location.reload(true);
-                    }
-                }, 2000);
-            } else {
-                console.log('✅ Layout is correct');
-            }
-        }
-    }, 1000);
-}
-
-// ===== MAIN INITIALIZATION =====
-function initializeApp() {
-    console.log('🚀 Initializing Texna website...');
-    
-    try {
-        // Core functionality
-        initializeDomainCompatibility();
-        initializeNavigation();
-        initializeMenu();
-        initializeBackButton();
-        
-        // Page-specific functionality
-        initializeSlider();
-        initializeSearch();
-        initializeProductDetail();
-        initializeProductsPage();
-        
-        // Enhancements
-        optimizeImages();
-        preloadCriticalResources();
-        enhanceAccessibility();
-        initializeAnalytics();
-        
-        // Check for layout issues and fix if needed
-        detectLayoutIssues();
-        
-        console.log('✅ Texna website initialized successfully');
-        
-    } catch (error) {
-        console.error('❌ Error initializing website:', error);
-    }
-}
-
-// ===== EVENT LISTENERS =====
-document.addEventListener('DOMContentLoaded', initializeApp);
-
-// Handle page visibility changes
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Pause animations and intervals when page is hidden
-        if (slideInterval) clearInterval(slideInterval);
+    if (isActive) {
+        // Close menu
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+        console.log('❌ Menu closed');
     } else {
-        // Resume when page becomes visible
-        if ($('.banner-slide')) {
-            initializeSlider();
+        // Open menu
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        console.log('✅ Menu opened');
+    }
+}
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const menuOverlay = document.getElementById('menuOverlay');
+        if (menuOverlay && menuOverlay.classList.contains('active')) {
+            toggleMenu();
         }
     }
 });
 
-// Handle resize events
-window.addEventListener('resize', debounce(() => {
-    // Reinitialize components that depend on screen size
-    initializeNavigation();
-}, 250));
+console.log('✅ Hamburger menu system initialized');
 
-// Initialize error handling
-handleErrors();
+// ===== HERO BANNER SLIDER FUNCTIONALITY =====
+let currentSlide = 0;
+let slideInterval;
+const totalSlides = 3;
 
-// ===== EXPORT FOR TESTING =====
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        initializeApp,
-        initializeSlider,
-        initializeNavigation,
-        initializeMenu
+// Initialize slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSlider();
+});
+
+function initializeSlider() {
+    // Start auto-slide
+    startAutoSlide();
+    
+    // Add touch support for mobile swiping
+    addSliderTouchSupport();
+    
+    console.log('🎠 Hero banner slider initialized');
+}
+
+function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateSlider();
+    
+    // Reset auto-slide timer
+    clearInterval(slideInterval);
+    startAutoSlide();
+    
+    console.log('🎠 Moved to slide:', slideIndex + 1);
+}
+
+function updateSlider() {
+    const sliderTrack = document.getElementById('sliderTrack');
+    const dots = document.querySelectorAll('.dot');
+    
+    // Move slider track
+    const translateX = -currentSlide * 33.333;
+    sliderTrack.style.transform = `translateX(${translateX}%)`;
+    
+    // Update active dot
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+}
+
+function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+}
+
+function addSliderTouchSupport() {
+    const sliderContainer = document.querySelector('.slider-container');
+    let startX = 0;
+    let startY = 0;
+    let endX = 0;
+    let endY = 0;
+    let isDragging = false;
+    let hasMoved = false;
+    
+    // Touch start
+    sliderContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+        hasMoved = false;
+        
+        // Pause auto-slide while touching
+        clearInterval(slideInterval);
+    }, { passive: true });
+    
+    // Touch move (for better gesture detection)
+    sliderContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        
+        // Calculate movement
+        const diffX = Math.abs(currentX - startX);
+        const diffY = Math.abs(currentY - startY);
+        
+        // Mark that user has moved
+        if (diffX > 5 || diffY > 5) {
+            hasMoved = true;
+        }
+        
+        // Prevent vertical scrolling if horizontal swipe is detected
+        if (diffX > diffY && diffX > 5) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Touch end
+    sliderContainer.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        
+        endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
+        isDragging = false;
+        
+        if (hasMoved) {
+            handleSwipe();
+        }
+        
+        // Resume auto-slide
+        startAutoSlide();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 20; // Lower threshold for easier swiping
+        const diffX = startX - endX;
+        const diffY = Math.abs(startY - endY);
+        
+        // Only process horizontal swipes (not vertical scrolls)
+        if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
+            if (diffX > 0) {
+                // Swipe left - next slide
+                nextSlide();
+                console.log('👆 Swiped left - next slide');
+            } else {
+                // Swipe right - previous slide
+                prevSlide();
+                console.log('👆 Swiped right - previous slide');
+            }
+        }
+    }
+}
+
+// Pause slider when page is not visible
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        clearInterval(slideInterval);
+    } else {
+        startAutoSlide();
+    }
+});
+
+// ===== FEATURE CARDS POPUP FUNCTIONALITY =====
+const featureData = {
+    readymade: {
+        icon: "SVG/Readymade Jala.svg",
+        title: "Readymade Jala",
+        text: `At Texna, we understand the value of time in production. That's why we've developed a system where your Jala is ready before your Jacquard machines arrive. Our expert team installs it immediately, ensuring your production starts without delay. 
+
+With Texna, you can:
+<ul>
+<li>Get started with production faster</li>
+<li>Minimize downtime and maximize efficiency</li>
+<li>Rely on our expertise for seamless installation</li>
+<li>Trust Texna to keep your production running smoothly</li>
+</ul>`
+    },
+    experience: {
+        icon: "SVG/35+ Years of  Expertise.svg",
+        title: "35+ years of experience",
+        text: `Under the expertise of Nasir Khan, Texna delivers top-quality Jala solutions. With 35+ years of experience, Nasir Khan ensures precision and reliability. 
+
+Nasir Khan's team (Texna) provides exceptional service and support. Trust Nasir Khan's expertise for your Jala needs. Nasir Khan's legacy is built on quality and customer satisfaction.`
+    },
+    service: {
+        icon: "SVG/Quick Service  (Under 24 Hrs).svg",
+        title: "Quick Service (under 24 Hrs.)",
+        text: `Experience rapid service with Texna! Our team delivers quick solutions within 24 hours. Get your Jala needs met promptly and efficiently. Trust Texna for timely support.`
+    },
+    support: {
+        icon: "SVG/Support and  Maintenance.svg",
+        title: "Support & Maintenance",
+        text: `Texna's Support & Maintenance services ensure your Jala systems run smoothly. Our dedicated team provides prompt assistance and troubleshooting. 
+
+Regular maintenance minimizes downtime and optimizes performance. Trust Texna to keep your Jala systems in top condition. Reliable support for long-term productivity.`
+    }
+};
+
+function openPopup(featureKey) {
+    const feature = featureData[featureKey];
+    if (!feature) return;
+    
+    const overlay = document.getElementById('popupOverlay');
+    const icon = document.getElementById('popupIcon');
+    const title = document.getElementById('popupTitle');
+    const text = document.getElementById('popupText');
+    
+    // Set popup content
+    icon.src = feature.icon;
+    icon.alt = feature.title;
+    title.textContent = feature.title;
+    text.innerHTML = feature.text;
+    
+    // Show popup
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    console.log('📋 Opened popup for:', feature.title);
+}
+
+function closePopup() {
+    const overlay = document.getElementById('popupOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    
+    console.log('❌ Closed popup');
+}
+
+// Close popup on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closePopup();
+    }
+});
+
+// We'll add more functions as we build step by step
+
+// ===== PROFILE BANNER POPUP FUNCTIONALITY =====
+const profileBannerData = {
+    nasir: {
+        image: "Profile banner/04.webp",
+        heading: "CEO's Message",
+        text: `<p>At TEXNA, our journey is driven by innovation, integrity, and excellence. From humble beginnings to a trusted name, we've stayed committed to creating value through quality and consistency.</p><p>Our success lies in the trust of our customers and partners — every product reflects our dedication to craftsmanship, sustainability, and forward-thinking design.</p><p>As we grow, we'll keep pushing boundaries, embracing technology, and empowering our people to build a smarter, more connected future.</p><div class="signature"><strong>Nasir Khan</strong><span>Chief Executive Officer, TEXNA</span></div>`
+    },
+    affan: {
+        image: "Profile banner/05.webp",
+        text: `<p style="color: #FFD700; font-weight: 700; font-size: 12px; margin-bottom: 6px;">CFO's Message</p><p style="font-size: 10px;">At TEXNA, our financial approach is built on transparency, responsibility, and sustainable growth. We stay committed to efficiency, innovation, and long-term value creation.</p><p style="font-size: 10px;">Our goal is to keep TEXNA financially strong — driving progress, supporting our vision, and creating lasting value for every stakeholder.</p><div class="signature"><strong style="font-size: 12px;">Affan Khan</strong><span style="font-size: 8px;">Chief Financial Officer, TEXNA</span></div>`
+    },
+    zaid: {
+        image: "Profile banner/07.webp",
+        heading: "COO's Message",
+        text: `<p style="font-size: 10px;">At TEXNA, operational excellence drives everything we do. From production to delivery, we focus on quality, efficiency, and constant improvement.</p><p style="font-size: 10px;">With teamwork, innovation, and precision, our people power TEXNA's success — turning challenges into achievements and setting new standards of excellence.</p><div class="signature"><strong style="font-size: 12px;">Zaid Khan</strong><span style="font-size: 8px;">Chief Operating Officer, TEXNA</span></div>`
+    },
+    kalim: {
+        image: "Profile banner/06.webp",
+        heading: "General Manager's Message",
+        text: `<p style="font-size: 10px;">At TEXNA, we drive progress through innovation, dedication, and teamwork. My focus is to align our daily operations and customer relationships with our long-term vision of excellence and growth.</p><p style="font-size: 10px;">With integrity, efficiency, and a passion for quality, we aim to exceed expectations and set new standards for the future.</p><div class="signature"><strong style="font-size: 12px;">Kalim Malik</strong><span style="font-size: 8px;">General Manager, TEXNA</span></div>`
+    }
+};
+
+// Make function globally accessible
+window.openProfileBanner = function(profileKey) {
+    console.log('🔵 Profile clicked:', profileKey);
+    
+    const profile = profileBannerData[profileKey];
+    if (!profile) {
+        console.error('❌ Profile not found:', profileKey);
+        return;
+    }
+    
+    const overlay = document.getElementById('profileBannerOverlay');
+    const image = document.getElementById('profileBannerImage');
+    const heading = document.getElementById('profileBannerHeading');
+    const text = document.getElementById('profileBannerText');
+    
+    if (!overlay || !image || !text) {
+        console.error('❌ Profile banner elements not found');
+        return;
+    }
+    
+    console.log('✅ Setting banner image:', profile.image);
+    
+    // Set banner content
+    image.src = profile.image;
+    image.alt = profile.heading || profile.text.split('\n')[0];
+    
+    // Set heading if exists
+    if (heading && profile.heading) {
+        heading.innerHTML = profile.heading;
+        heading.style.display = 'block';
+    } else if (heading) {
+        heading.style.display = 'none';
+    }
+    
+    text.innerHTML = profile.text.replace(/\n/g, '<br>');
+    
+    // Add class for profiles with headings (to adjust text position)
+    if (profile.heading) {
+        text.classList.add('has-heading');
+    } else {
+        text.classList.remove('has-heading');
+    }
+    
+    // Position text on right for Affan and Kalim, left for others
+    if (profileKey === 'affan' || profileKey === 'kalim') {
+        if (heading) heading.classList.add('text-right');
+        text.classList.add('text-right');
+    } else {
+        if (heading) heading.classList.remove('text-right');
+        text.classList.remove('text-right');
+    }
+    
+    // Show banner
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    console.log('✅ Profile banner opened successfully');
+};
+
+// Make function globally accessible
+window.closeProfileBanner = function() {
+    console.log('🔵 Closing profile banner');
+    
+    const overlay = document.getElementById('profileBannerOverlay');
+    if (!overlay) {
+        console.error('❌ Profile banner overlay not found');
+        return;
+    }
+    
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    console.log('✅ Profile banner closed');
+};
+
+// Close profile banner on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('profileBannerOverlay');
+        if (overlay && overlay.classList.contains('active')) {
+            window.closeProfileBanner();
+        }
+    }
+});
+
+console.log('✅ Profile banner system initialized');
+
+// Test that functions are accessible
+if (typeof window.openProfileBanner === 'function') {
+    console.log('✅ openProfileBanner is accessible globally');
+} else {
+    console.error('❌ openProfileBanner is NOT accessible');
+}
+
+if (typeof window.closeProfileBanner === 'function') {
+    console.log('✅ closeProfileBanner is accessible globally');
+} else {
+    console.error('❌ closeProfileBanner is NOT accessible');
+}
+
+
+// ===== REVIEWS SLIDER FUNCTIONALITY =====
+let currentReview = 0;
+let reviewInterval;
+const totalReviews = 10;
+
+// Initialize reviews slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeReviewsSlider();
+});
+
+function initializeReviewsSlider() {
+    // Start auto-slide for reviews
+    startReviewAutoSlide();
+    
+    // Add touch support for mobile swiping
+    addReviewsTouchSupport();
+    
+    console.log('⭐ Reviews slider initialized');
+}
+
+function goToReview(reviewIndex) {
+    currentReview = reviewIndex;
+    updateReviewsSlider();
+    
+    // Reset auto-slide timer
+    clearInterval(reviewInterval);
+    startReviewAutoSlide();
+    
+    console.log('⭐ Moved to review:', reviewIndex + 1);
+}
+
+function updateReviewsSlider() {
+    const reviewsSlider = document.getElementById('reviewsSlider');
+    
+    if (!reviewsSlider) return;
+    
+    // Move slider track (10% per review since we have 10 reviews)
+    const translateX = -currentReview * 10;
+    reviewsSlider.style.transform = `translateX(${translateX}%)`;
+}
+
+function nextReview() {
+    currentReview = (currentReview + 1) % totalReviews;
+    updateReviewsSlider();
+}
+
+function prevReview() {
+    currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+    updateReviewsSlider();
+}
+
+function startReviewAutoSlide() {
+    reviewInterval = setInterval(nextReview, 8000); // Change review every 8 seconds (slower)
+}
+
+function addReviewsTouchSupport() {
+    const reviewsContainer = document.querySelector('.reviews-slider-container');
+    if (!reviewsContainer) return;
+    
+    let startX = 0;
+    let startY = 0;
+    let endX = 0;
+    let endY = 0;
+    let isDragging = false;
+    
+    // Touch start
+    reviewsContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+        
+        // Pause auto-slide while touching
+        clearInterval(reviewInterval);
+    }, { passive: true });
+    
+    // Touch move
+    reviewsContainer.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        
+        // Prevent vertical scrolling if horizontal swipe is detected
+        const diffX = Math.abs(currentX - startX);
+        const diffY = Math.abs(currentY - startY);
+        
+        if (diffX > diffY && diffX > 10) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Touch end
+    reviewsContainer.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        
+        endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
+        isDragging = false;
+        
+        handleReviewSwipe();
+        
+        // Resume auto-slide
+        startReviewAutoSlide();
+    }, { passive: true });
+    
+    function handleReviewSwipe() {
+        const swipeThreshold = 30;
+        const diffX = startX - endX;
+        const diffY = Math.abs(startY - endY);
+        
+        // Only process horizontal swipes
+        if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
+            if (diffX > 0) {
+                // Swipe left - next review
+                nextReview();
+                console.log('👆 Swiped left - next review');
+            } else {
+                // Swipe right - previous review
+                prevReview();
+                console.log('👆 Swiped right - previous review');
+            }
+        }
+    }
+}
+
+// Pause reviews slider when page is not visible
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        clearInterval(reviewInterval);
+    } else {
+        if (typeof startReviewAutoSlide === 'function') {
+            startReviewAutoSlide();
+        }
+    }
+});
+
+console.log('✅ Reviews slider system initialized');
+
+
+// ===== BOTTOM NAVIGATION FUNCTIONALITY =====
+// Set active navigation item based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    setActiveNavItem();
+});
+
+function setActiveNavItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const href = item.getAttribute('href');
+        
+        // Remove active class from all items
+        item.classList.remove('active');
+        
+        // Add active class to current page
+        if (href === currentPage || 
+            (currentPage === '' && href === 'index.html') ||
+            (currentPage === 'index.html' && href === 'index.html')) {
+            item.classList.add('active');
+        }
+    });
+    
+    console.log('✅ Bottom navigation initialized');
+}
+
+// Add click animation to nav items
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Don't prevent default for WhatsApp link
+            if (!this.getAttribute('href').includes('wa.me')) {
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            }
+        });
+    });
+});
+
+
+// ===== PRODUCT DETAIL NAVIGATION =====
+function viewProductDetail(name, image, description, features) {
+    // Store product data in sessionStorage
+    const productData = {
+        name: name,
+        image: image,
+        description: description,
+        features: features
     };
+    
+    sessionStorage.setItem('currentProduct', JSON.stringify(productData));
+    
+    // Navigate to product detail page
+    window.location.href = 'product-detail.html';
+    
+    console.log('📦 Navigating to product detail:', name);
+}
+
+// Load product data on product detail page
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the product detail page
+    if (window.location.pathname.includes('product-detail.html')) {
+        loadProductDetail();
+    }
+});
+
+function loadProductDetail() {
+    const productDataStr = sessionStorage.getItem('currentProduct');
+    
+    if (!productDataStr) {
+        console.error('❌ No product data found');
+        return;
+    }
+    
+    const productData = JSON.parse(productDataStr);
+    
+    // Update page elements
+    const productName = document.getElementById('productName');
+    const productImage = document.getElementById('productImage');
+    const productDescription = document.getElementById('productDescription');
+    const featuresList = document.getElementById('featuresList');
+    
+    if (productName) productName.textContent = productData.name;
+    if (productImage) {
+        productImage.src = productData.image;
+        productImage.alt = productData.name;
+    }
+    if (productDescription) productDescription.textContent = productData.description;
+    
+    // Update features list
+    if (featuresList && productData.features) {
+        featuresList.innerHTML = '';
+        productData.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.className = 'feature-item';
+            li.innerHTML = `
+                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M16.6 5L7.5 14.1 3.4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>${feature}</span>
+            `;
+            featuresList.appendChild(li);
+        });
+    }
+    
+    // Update page title
+    document.title = `${productData.name} - Texna`;
+    
+    console.log('✅ Product detail loaded:', productData.name);
 }

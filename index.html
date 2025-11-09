@@ -1,494 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Texna - Leading Jacquard Harness Systems Manufacturer</title>
+    <meta name="description" content="Texna is India's leading manufacturer of Jacquard Harness Systems with 35+ years of experience.">
     
-    <!-- Cache Control Meta Tags -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    
-    <!-- Critical CSS for Bottom Navigation -->
-    <style>
-        /* CRITICAL: Bottom Navigation Fix */
-        .bottom-nav {
-            position: fixed !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            width: 100% !important;
-            background: #FFFFFF !important;
-            display: flex !important;
-            justify-content: space-around !important;
-            align-items: center !important;
-            padding: 8px 12px !important;
-            box-shadow: 0 -2px 15px rgba(52, 55, 112, 0.15) !important;
-            border-top: 1px solid rgba(52, 55, 112, 0.1) !important;
-            z-index: 1000 !important;
-            min-height: 80px !important;
-        }
-        
-        @media (min-width: 1024px) {
-            .bottom-nav {
-                display: none !important;
-            }
-        }
-        
-        .nav-item {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: rgba(52, 55, 112, 0.7) !important;
-            cursor: pointer !important;
-            padding: 8px 4px !important;
-            border-radius: 16px !important;
-            transition: all 0.3s ease !important;
-            flex: 1 !important;
-            max-width: 80px !important;
-            min-height: 64px !important;
-            text-decoration: none !important;
-        }
-        
-        .nav-item.active {
-            color: #FFFFFF !important;
-            background-color: #343770 !important;
-            transform: scale(1.05) !important;
-            box-shadow: 0 4px 12px rgba(52, 55, 112, 0.3) !important;
-        }
-        
-        .nav-item:last-child {
-            color: #25D366 !important;
-        }
-        
-        .nav-item:last-child.active {
-            background-color: #25D366 !important;
-            color: #FFFFFF !important;
-        }
-        
-        .nav-icon {
-            width: 32px !important;
-            height: 32px !important;
-            object-fit: contain !important;
-        }
-        
-        .main-content {
-            padding-bottom: 90px !important;
-        }
-        
-        @media (min-width: 1024px) {
-            .main-content {
-                padding-bottom: 0 !important;
-            }
-        }
-    </style>
-    
-
-
-    <!-- SEO Meta Tags -->
-    <title>Texna - Leading Jacquard Harness Systems Manufacturer | 35+ Years Experience</title>
-    <meta name="description"
-        content="Texna is India's leading manufacturer of Jacquard Harness Systems with 35+ years of experience. We provide installation, repair, maintenance, and custom solutions for textile machinery across India.">
-    <meta name="keywords"
-        content="Jacquard Harness, Textile Machinery, Harness Systems, Jala Installation, Textile Manufacturing, Weaving Machine Parts, India Textile Equipment">
-    <meta name="author" content="Texna">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Texna - Leading Jacquard Harness Systems Manufacturer">
-    <meta property="og:description"
-        content="35+ years of excellence in Jacquard Harness Systems. 40,000+ successful installations across India. Custom and ready-made solutions for textile machinery.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-    <meta property="og:site_name" content="Texna">
-    <meta property="og:locale" content="en_IN">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Texna - Leading Jacquard Harness Systems Manufacturer">
-    <meta name="twitter:description"
-        content="35+ years of excellence in Jacquard Harness Systems. 40,000+ successful installations across India.">
-    <meta name="twitter:image" content="">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="">
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#343770">
-
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Preload only critical first image -->
-    <link rel="preload" as="image" href="01.webp">
-
-    <!-- Preload products page for faster navigation -->
-    <link rel="prefetch" href="products.html">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=7.0&simple=1">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Texna",
-        "description": "Leading manufacturer of Jacquard Harness Systems with 35+ years of experience",
-        "url": "",
-        "logo": "",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+91-9978617177",
-            "contactType": "customer service",
-            "availableLanguage": ["English", "Hindi"]
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "IN"
-        },
-        "foundingDate": "1987",
-        "numberOfEmployees": "250+",
-        "industry": "Textile Machinery Manufacturing"
-    }
-    </script>
-
+    <!-- Mobile-First CSS -->
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
-
 <body>
+    <!-- Header with Centered Logo and Hamburger Menu -->
+    <header class="header">
+        <!-- Hamburger Menu Button with SVG -->
+        <button class="hamburger-menu" onclick="toggleMenu()">
+            <img src="SVG/Menu Line.svg" alt="Menu" />
+        </button>
 
-
-    <!-- Top Navigation -->
-    <header class="top-nav">
-        <div class="nav-left">
-            <button class="back-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18L9 12L15 6" stroke="#343770" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </button>
-        </div>
-        <div class="nav-center">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="SVG/Texna Logo.svg" alt="Texna Logo" class="logo-svg">
-                </a>
-            </div>
-        </div>
-        <div class="nav-right">
-            <button class="menu-btn">
-                <img src="SVG/Menu Line.svg" alt="Menu" style="width: 24px; height: 24px;">
-            </button>
-        </div>
-
-        <!-- Desktop Navigation Menu -->
-        <nav class="desktop-nav">
-            <ul class="desktop-nav-list">
-                <li class="desktop-nav-item active">
-                    <a href="index.html" class="desktop-nav-link">
-                        <img src="SVG/Home Button.svg" alt="Home" class="desktop-nav-icon">
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="search.html" class="desktop-nav-link">
-                        <img src="SVG/Search Button.svg" alt="Search" class="desktop-nav-icon">
-                        <span>Search</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="services.html" class="desktop-nav-link">
-                        <img src="SVG/Services Button.svg" alt="Services" class="desktop-nav-icon">
-                        <span>Services</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="products.html" class="desktop-nav-link">
-                        <img src="SVG/Products Button.svg" alt="Products" class="desktop-nav-icon">
-                        <span>Products</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="about.html" class="desktop-nav-link">
-                        <span>About</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="https://wa.me/919978617177" target="_blank" class="desktop-nav-link whatsapp-link">
-                        <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="desktop-nav-icon">
-                        <span>Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <!-- Centered Logo -->
+        <img src="SVG/Texna Logo TM.svg" alt="Texna Logo" class="logo">
     </header>
 
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <div class="menu-header">
+                <div class="menu-logo">
+                    <img src="SVG/Texna Logo TM.svg" alt="Texna Logo">
+                </div>
+                <button class="menu-close" onclick="toggleMenu()">&times;</button>
+            </div>
+            
+            <nav class="menu-nav">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-text">Home</span>
+                </a>
+                <a href="search.html" class="menu-link">
+                    <span class="menu-text">Search</span>
+                </a>
+                <a href="services.html" class="menu-link">
+                    <span class="menu-text">Services</span>
+                </a>
+                <a href="products.html" class="menu-link">
+                    <span class="menu-text">Products</span>
+                </a>
+                <a href="https://wa.me/919978617177" target="_blank" class="menu-link menu-link-whatsapp">
+                    <span class="menu-text">Contact</span>
+                </a>
+            </nav>
+        </div>
+    </div>
 
-    <!-- Main Content -->
-    <main id="main-content" class="main-content" role="main">
-        <!-- Hero Banner Slider -->
-        <section class="hero-banner">
-            <div class="banner-slider">
-                <div class="banner-slide active">
-                    <img src="01.webp" alt="Texna - Leading Jacquard Harness Systems" loading="eager" width="800"
-                        height="300"
-                        onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg, #343770 0%, #6062A9 100%)'; this.parentNode.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-size:1.5rem;&quot;>Texna - Leading Jacquard Harness Systems</div>';">
+    <!-- Hero Banner Slider -->
+    <section class="hero-banner">
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <div class="slide">
+                    <img src="Hero banner/01.webp" alt="Texna Hero Banner 1" loading="eager">
                 </div>
-                <div class="banner-slide">
-                    <img src="02.webp" alt="Texna - 35+ Years of Excellence" loading="lazy" width="800" height="300"
-                        onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg, #343770 0%, #6062A9 100%)'; this.parentNode.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-size:1.5rem;&quot;>Texna - 35+ Years of Excellence</div>';">
+                <div class="slide">
+                    <img src="Hero banner/02.webp" alt="Texna Hero Banner 2" loading="lazy">
                 </div>
-                <div class="banner-slide">
-                    <img src="03.webp" alt="Texna - Quality Textile Machinery" loading="lazy" width="800" height="300"
-                        onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg, #343770 0%, #6062A9 100%)'; this.parentNode.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-size:1.5rem;&quot;>Texna - Quality Textile Machinery</div>';">
+                <div class="slide">
+                    <img src="Hero banner/03.webp" alt="Texna Hero Banner 3" loading="lazy">
                 </div>
             </div>
-
-            <!-- Indicators -->
-            <div class="banner-indicators">
-                <span class="indicator active" onclick="currentSlideIndex(1)"></span>
-                <span class="indicator" onclick="currentSlideIndex(2)"></span>
-                <span class="indicator" onclick="currentSlideIndex(3)"></span>
+            
+            <!-- Navigation Dots -->
+            <div class="slider-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Feature Boxes -->
-        <section class="features-section">
-            <div class="feature-box">
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-grid">
+            <!-- Readymade Jala Card -->
+            <div class="feature-card" onclick="openPopup('readymade')">
                 <div class="feature-icon">
-                    <img src="SVG/Ready Jala.svg" alt="Readymade Jala" class="feature-svg">
+                    <img src="SVG/Readymade Jala.svg" alt="Readymade Jala">
                 </div>
-                <h4>Readymade<br>Jala</h4>
+                <h3 class="feature-title">Readymade<br>Jala</h3>
             </div>
 
-            <div class="feature-box">
+            <!-- 35+ Years Experience Card -->
+            <div class="feature-card" onclick="openPopup('experience')">
                 <div class="feature-icon">
-                    <img src="SVG/35+ Years of  Expertise.svg" alt="35+ Years of Expertise" class="feature-svg">
+                    <img src="SVG/35+ Years of  Expertise.svg" alt="35+ Years of Expertise">
                 </div>
-                <h4>35+ Years of<br>Expertise</h4>
+                <h3 class="feature-title">35+ Years of<br>Expertise</h3>
             </div>
 
-            <div class="feature-box">
+            <!-- Quick Service Card -->
+            <div class="feature-card" onclick="openPopup('service')">
                 <div class="feature-icon">
-                    <img src="SVG/Quick Service  (Under 24 Hrs).svg" alt="Quick Service" class="feature-svg">
+                    <img src="SVG/Quick Service  (Under 24 Hrs).svg" alt="Quick Service">
                 </div>
-                <h4>Quick Service<br>(Under 24 Hrs)</h4>
+                <h3 class="feature-title">Quick Service<br>(Under 24 Hrs)</h3>
             </div>
 
-            <div class="feature-box">
+            <!-- Support & Maintenance Card -->
+            <div class="feature-card" onclick="openPopup('support')">
                 <div class="feature-icon">
-                    <img src="SVG/Support and  Maintenance.svg" alt="Support and Maintenance" class="feature-svg">
+                    <img src="SVG/Support and  Maintenance.svg" alt="Support and Maintenance">
                 </div>
-                <h4>Support and<br>Maintenance</h4>
+                <h3 class="feature-title">Support and<br>Maintenance</h3>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Product Categories Overview Section -->
-        <section class="product-categories-section">
-            <div class="categories-container">
-                <!-- Product Categories Visual Guide -->
-                <div class="categories-guide-container">
-                    <div class="svg-wrapper" onclick="window.location.href='products.html'" style="cursor: pointer;">
-                        <img src="abc.svg"
-                            alt="Texna Product Categories - Guide Board, Harness Cord, Comber Board, Wire Headls (Raj) - Click View All to see all products"
-                            class="categories-guide-image" loading="lazy">
+    <!-- ABC SVG Image Section -->
+    <section class="abc-section">
+        <img src="abc.svg" alt="Texna Product Categories - Guide Board, Harness Cord, Comber Board, Wire Headls (Raj) - Click View All to see all products" class="categories-guide-image" loading="lazy">
+    </section>
+
+    <!-- Team Profile Section -->
+    <section class="team-section">
+        <div class="team-grid">
+            <!-- Profile 1: Nasir Khan -->
+            <div class="team-member team-member-left" onclick="openProfileBanner('nasir')">
+                <div class="profile-image-wrapper">
+                    <img src="Nasir Bhai.webp" alt="Nasir Khan" class="profile-image">
+                </div>
+                <h3 class="member-name">NASIR <span class="name-light">KHAN</span></h3>
+                <p class="member-title">CHIEF EXECUTIVE OFFICER</p>
+                <p class="member-location">JALEWALA</p>
+            </div>
+
+            <!-- Profile 2: Affan Khan -->
+            <div class="team-member team-member-right" onclick="openProfileBanner('affan')">
+                <div class="profile-image-wrapper">
+                    <img src="Affan Bhai.webp" alt="Affan Khan" class="profile-image">
+                </div>
+                <h3 class="member-name">AFFAN <span class="name-light">KHAN</span></h3>
+                <p class="member-title">CHIEF FINANCIAL OFFICER</p>
+            </div>
+
+            <!-- Profile 3: Zaid Khan -->
+            <div class="team-member team-member-left" onclick="openProfileBanner('zaid')">
+                <div class="profile-image-wrapper">
+                    <img src="Zaid Bhai.webp" alt="Zaid Khan" class="profile-image">
+                </div>
+                <h3 class="member-name">ZAID <span class="name-light">KHAN</span></h3>
+                <p class="member-title">CHIEF OPERATING OFFICER</p>
+            </div>
+
+            <!-- Profile 4: Kalim Malik -->
+            <div class="team-member team-member-right" onclick="openProfileBanner('kalim')">
+                <div class="profile-image-wrapper">
+                    <img src="Kalim Bhai.webp" alt="Kalim Malik" class="profile-image">
+                </div>
+                <h3 class="member-name">KALIM <span class="name-light">MALIK</span></h3>
+                <p class="member-title">GENERAL MANAGER</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <h2 class="reviews-heading">What Clients Say About Us</h2>
+        <p class="reviews-subheading">Trusted by businesses worldwide for quality and excellence</p>
+        
+        <div class="reviews-slider-container">
+            <div class="reviews-slider" id="reviewsSlider">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">J</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Jack William</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
                     </div>
+                    <p class="review-text">Texna has revolutionized the way I manage projects. Its comprehensive suite of tools, user-friendly interface, and robust performance have significantly enhanced our productivity and collaboration.</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">S</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Sarah Johnson</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Outstanding service and quality products! The team at Texna truly understands customer needs and delivers beyond expectations. Highly recommended for anyone looking for reliable solutions.</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">M</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Michael Chen</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Working with Texna has been a game-changer for our business. Their attention to detail and commitment to excellence is unmatched. We've seen remarkable improvements in our operations.</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">P</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Priya Sharma</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Exceptional quality and timely delivery! Texna's products have exceeded our expectations. Their customer service is top-notch and they always go the extra mile to ensure satisfaction.</p>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">A</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Ahmed Khan</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">I've been working with Texna for over 5 years now. Their consistency in quality and innovation keeps us coming back. They are truly leaders in their industry.</p>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">E</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Emily Rodriguez</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Texna's innovative solutions have transformed our manufacturing process. The efficiency gains we've achieved are remarkable. Highly professional team with deep industry knowledge.</p>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">R</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Rajesh Patel</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Best decision we made was partnering with Texna. Their products are durable, reliable, and backed by excellent support. They truly care about their customers' success.</p>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">L</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Lisa Anderson</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Texna stands out for their commitment to sustainability and quality. Their eco-friendly approach combined with superior products makes them our preferred partner.</p>
+                </div>
+
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">D</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">David Thompson</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Incredible service from start to finish. Texna's team is knowledgeable, responsive, and always delivers on their promises. Our production efficiency has increased by 40%!</p>
+                </div>
+
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-image reviewer-initial">F</div>
+                        <div class="reviewer-info">
+                            <h3 class="reviewer-name">Fatima Ali</h3>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">Texna has been instrumental in our growth. Their cutting-edge technology and personalized service have given us a competitive edge. Absolutely recommend them to everyone!</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Team Profile Section -->
-        <section class="team-profile-section">
-            <div class="team-container">
-                <div class="team-profiles-grid">
-                    <div class="profile-item">
-                        <div class="profile-photo-circle">
-                            <img src="Nasir Bhai.webp" alt="Nasir Khan - CEO" class="profile-photo">
-                        </div>
-                        <div class="profile-text">
-                            <h3 class="person-name">NASIR <span class="name-light">KHAN</span></h3>
-                            <p class="person-position">Chief Executive Officer</p>
-                            <p class="company-name">JALEWALA</p>
-                        </div>
-                    </div>
+    <!-- Map Section -->
+    <section class="map-section">
+        <img src="Map.webp" alt="Texna Location Map" class="map-image">
+    </section>
 
-                    <div class="profile-item">
-                        <div class="profile-photo-circle">
-                            <img src="Affan Bhai.webp" alt="Affan Khan - CFO" class="profile-photo">
-                        </div>
-                        <div class="profile-text">
-                            <h3 class="person-name">AFFAN <span class="name-light">KHAN</span></h3>
-                            <p class="person-position">Chief Financial Officer</p>
-                            <p class="company-name">JALEWALA</p>
-                        </div>
-                    </div>
-
-                    <div class="profile-item">
-                        <div class="profile-photo-circle">
-                            <img src="Zaid Khan.webp" alt="Zaid Khan - Operations Manager" class="profile-photo">
-                        </div>
-                        <div class="profile-text">
-                            <h3 class="person-name">ZAID <span class="name-light">KHAN</span></h3>
-                            <p class="person-position">Operations Manager</p>
-                            <p class="company-name">JALEWALA</p>
-                        </div>
-                    </div>
-
-                    <div class="profile-item">
-                        <div class="profile-photo-circle">
-                            <img src="Kalim Bhai.webp" alt="Kalim Malik - General Manager" class="profile-photo">
-                        </div>
-                        <div class="profile-text">
-                            <h3 class="person-name">KALIM</h3>
-                            <p class="person-position">General Manager</p>
-                            <p class="company-name">MALIK</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Profile Banner Popup -->
+    <div class="profile-banner-overlay" id="profileBannerOverlay" onclick="closeProfileBanner()">
+        <div class="profile-banner-content" onclick="event.stopPropagation()">
+            <button class="profile-banner-close" onclick="closeProfileBanner()">&times;</button>
+            <div class="profile-banner-image-wrapper">
+                <img id="profileBannerImage" src="" alt="" class="profile-banner-image">
+                <div class="profile-banner-heading" id="profileBannerHeading"></div>
+                <div class="profile-banner-text-box" id="profileBannerText"></div>
             </div>
-        </section>
+        </div>
+    </div>
 
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup()">
+        <div class="popup-content" onclick="event.stopPropagation()">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-header">
+                <div class="popup-icon">
+                    <img id="popupIcon" src="" alt="">
+                </div>
+                <h2 class="popup-title" id="popupTitle"></h2>
+            </div>
+            <div class="popup-text" id="popupText"></div>
+        </div>
+    </div>
 
-
-        <!-- Map Section -->
-        <section class="map-section">
-            <img src="Map.webp" alt="Texna Location Map" class="map-image" loading="lazy" width="800" height="400"
-                onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=&quot;background:linear-gradient(135deg, #343770 0%, #6062A9 100%);color:white;padding:40px;text-align:center;font-size:1.2rem;min-height:200px;display:flex;align-items:center;justify-content:center;&quot;>📍 Texna Location - Map Loading...</div>';">
-        </section>
-
-
+    <!-- Main Content Area (for future content) -->
+    <main class="main-content">
+        <!-- Content will be added step by step -->
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Contact Info -->
-            <div class="footer-section">
-                <h3 class="footer-title">Contact Us</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor"
-                                stroke-width="2" fill="none" />
-                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none" />
-                        </svg>
-                        <div class="contact-text">
-                            <p>Plot No 1026, Rd Number 87</p>
-                            <p>GIDC, Sachin, Surat</p>
-                            <p>Gujarat 394230, India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                                stroke="currentColor" stroke-width="2" fill="none" />
-                        </svg>
-                        <div class="contact-text">
-                            <a href="tel:+919978617177">+91 9978617177</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        <div class="contact-text">
-                            <a href="mailto:info@texna.com">info@texna.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        <div class="contact-text">
-                            <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="footer-social">
-                            <a href="https://www.instagram.com/texna_harness?igsh=ZmlzMnNwcTB4eXpn" target="_blank"
-                                class="social-link">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                                        fill="currentColor" />
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/people/Texna/61571191199435/" target="_blank" class="social-link">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path
-                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                                        fill="currentColor" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-container">
-                <p>&copy; 2024 Texna. All rights reserved.</p>
-                <p>35+ Years of Excellence in Jacquard Harness Systems | 40,000+ Successful Installations</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bottom Navigation -->
+    <!-- Fixed Bottom Navigation -->
     <nav class="bottom-nav">
-        <div class="nav-item active">
-            <a href="index.html">
-                <img src="SVG/Home Button.svg" alt="Home" class="nav-icon">
-                <span class="nav-text">Home</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="search.html">
-                <img src="SVG/Search Button.svg" alt="Search" class="nav-icon">
-                <span class="nav-text">Search</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="services.html">
-                <img src="SVG/Services Button.svg" alt="Services" class="nav-icon">
-                <span class="nav-text">Services</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="products.html">
-                <img src="SVG/Products Button.svg" alt="Products" class="nav-icon">
-                <span class="nav-text">Products</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="https://wa.me/919978617177" target="_blank">
-                <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="nav-icon">
-                <span class="nav-text">Contact</span>
-            </a>
-        </div>
+        <a href="index.html" class="nav-item active">
+            <img src="SVG/Home Button.svg" alt="Home" class="nav-icon">
+        </a>
+        <a href="search.html" class="nav-item">
+            <img src="SVG/Search Button.svg" alt="Search" class="nav-icon">
+        </a>
+        <a href="services.html" class="nav-item">
+            <img src="SVG/Services Button.svg" alt="Services" class="nav-icon">
+        </a>
+        <a href="products.html" class="nav-item nav-item-with-label">
+            <img src="SVG/Product Icon.svg" alt="Products" class="nav-icon">
+            <span class="nav-label nav-label-products">Products</span>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" class="nav-item">
+            <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="nav-icon">
+        </a>
     </nav>
 
-
-
-    <script src="script-simple.js"></script>
-
-
+    <!-- Mobile-First JavaScript -->
+    <script src="script.js"></script>
 </body>
-
-</html
+</html>

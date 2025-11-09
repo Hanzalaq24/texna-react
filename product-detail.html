@@ -1,245 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Product Detail - Texna</title>
+    <meta name="description" content="Detailed information about Texna products">
     
-    <!-- Cache Control Meta Tags -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta http-equiv="Last-Modified" content="Wed, 06 Nov 2024 12:00:00 GMT" />
-    <meta name="cache-control" content="no-cache, no-store, must-revalidate" />
-    <meta name="expires" content="0" />
-    <meta name="pragma" content="no-cache" />
-    
-    <!-- SEO Meta Tags (Dynamic content will be updated by JavaScript) -->
-    <title>Texna Product Details - Jacquard Harness Components</title>
-    <meta name="description" content="Detailed information about Texna's high-quality Jacquard Harness components. Precision-engineered for optimal performance in textile machinery.">
-    <meta name="keywords" content="Jacquard Components, Textile Machinery Parts, Harness Systems, Loom Components">
-    <meta name="author" content="Texna">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="SVG/Texna Logo.svg">
-    
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#343770">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=5.0&force=1&t=1730898000&nocache=true">
+    <!-- Mobile-First CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Top Navigation -->
-    <header class="top-nav">
-        <div class="nav-left">
-            <button class="back-btn" onclick="window.history.back()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18L9 12L15 6" stroke="#343770" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </button>
+    <!-- Header with Back Button, Logo and Hamburger Menu -->
+    <header class="header product-detail-header">
+        <!-- Back Button -->
+        <button class="back-button" onclick="history.back()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+
+        <!-- Centered Logo -->
+        <img src="SVG/Texna Logo TM.svg" alt="Texna Logo" class="logo">
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" onclick="toggleMenu()">
+            <img src="SVG/Menu Line.svg" alt="Menu" />
+        </button>
+    </header>
+
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <div class="menu-header">
+                <div class="menu-logo">
+                    <img src="SVG/Texna Logo TM.svg" alt="Texna Logo">
+                </div>
+                <button class="menu-close" onclick="toggleMenu()">&times;</button>
+            </div>
+            
+            <nav class="menu-nav">
+                <a href="index.html" class="menu-link">
+                    <span class="menu-text">Home</span>
+                </a>
+                <a href="search.html" class="menu-link">
+                    <span class="menu-text">Search</span>
+                </a>
+                <a href="services.html" class="menu-link">
+                    <span class="menu-text">Services</span>
+                </a>
+                <a href="products.html" class="menu-link">
+                    <span class="menu-text">Products</span>
+                </a>
+                <a href="https://wa.me/919978617177" target="_blank" class="menu-link menu-link-whatsapp">
+                    <span class="menu-text">Contact</span>
+                </a>
+            </nav>
         </div>
-        <div class="nav-center">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="SVG/Texna Logo.svg" alt="Texna Logo" class="logo-svg">
+    </div>
+
+    <!-- Product Detail Content -->
+    <div class="product-detail-page">
+        <!-- Product Header -->
+        <div class="product-detail-header-section">
+            <h1 class="product-detail-name" id="productName">Guide Board</h1>
+        </div>
+
+        <!-- Product Image -->
+        <div class="product-detail-image-container">
+            <img src="Products Photos/Products-1.webp" alt="Guide Board" class="product-detail-image" id="productImage">
+        </div>
+
+        <!-- Product Description -->
+        <div class="product-detail-description">
+            <p id="productDescription">High-quality guide board designed for precise yarn guidance and smooth loom operation. Manufactured with premium materials to ensure durability and consistent performance in textile machinery.</p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="product-features-section">
+            <h2 class="features-heading">Key Features</h2>
+            <ul class="features-list" id="featuresList">
+                <li class="feature-item">
+                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6 5L7.5 14.1 3.4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Precision-engineered for optimal performance</span>
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6 5L7.5 14.1 3.4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Durable construction for long-lasting use</span>
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6 5L7.5 14.1 3.4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Easy installation and maintenance</span>
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6 5L7.5 14.1 3.4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Compatible with various loom types</span>
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16.6 5L7.5 14.1 3.4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Quality tested for reliability</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="product-detail-contact">
+            <h3 class="contact-cta">Interested in this product?</h3>
+            <p class="contact-subtitle">Contact us for pricing and availability</p>
+            <div class="contact-buttons">
+                <a href="tel:+919978617177" class="contact-btn phone-btn">
+                    <span class="btn-icon">📱</span>
+                    <span class="btn-text">Call Now</span>
+                </a>
+                <a href="https://wa.me/919978617177" target="_blank" class="contact-btn whatsapp-btn">
+                    <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="btn-icon-img">
+                    <span class="btn-text">WhatsApp</span>
                 </a>
             </div>
         </div>
-        <div class="nav-right">
-            <button class="menu-btn">
-                <img src="SVG/Menu Line.svg" alt="Menu" style="width: 24px; height: 24px;">
-            </button>
-        </div>
-        
-        <!-- Desktop Navigation Menu -->
-        <nav class="desktop-nav">
-            <ul class="desktop-nav-list">
-                <li class="desktop-nav-item">
-                    <a href="index.html" class="desktop-nav-link">
-                        <img src="SVG/Home Button.svg" alt="Home" class="desktop-nav-icon">
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="search.html" class="desktop-nav-link">
-                        <img src="SVG/Search Button.svg" alt="Search" class="desktop-nav-icon">
-                        <span>Search</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="services.html" class="desktop-nav-link">
-                        <img src="SVG/Services Button.svg" alt="Services" class="desktop-nav-icon">
-                        <span>Services</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item active">
-                    <a href="products.html" class="desktop-nav-link">
-                        <img src="SVG/Products Button.svg" alt="Products" class="desktop-nav-icon">
-                        <span>Products</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="about.html" class="desktop-nav-link">
-                        <span>About</span>
-                    </a>
-                </li>
-                <li class="desktop-nav-item">
-                    <a href="https://wa.me/919978617177" target="_blank" class="desktop-nav-link whatsapp-link">
-                        <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="desktop-nav-icon">
-                        <span>Contact</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main-content product-detail-main">
-        <!-- Product Detail Section -->
-        <section class="product-detail-section">
-
-            <!-- Product Title -->
-            <div class="product-title-section">
-                <h1 id="product-title" class="detail-title">Guide Board</h1>
-            </div>
-
-            <!-- Main Product Image -->
-            <div class="product-hero-image">
-                <img id="main-product-image" src="Products Photos/Products-1.webp" alt="Product Image" class="hero-img">
-            </div>
-
-            <!-- Product Info -->
-            <div class="product-info-section">
-                <p id="product-description" class="detail-description">
-                    High-quality guide board designed for precise yarn guidance and smooth loom operation.
-                    Manufactured with premium materials to ensure durability and consistent performance in textile
-                    machinery.
-                </p>
-            </div>
-
-
-
-            <!-- Product Features -->
-            <div class="product-features-section">
-                <h3 class="features-title">Key Features</h3>
-                <ul class="features-list">
-                    <li>Precision-engineered for optimal performance</li>
-                    <li>Durable construction for long-lasting use</li>
-                    <li>Easy installation and maintenance</li>
-                    <li>Compatible with various loom types</li>
-                    <li>Quality tested for reliability</li>
-                </ul>
-            </div>
-
-
-
-
-
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Company Info -->
-            <div class="footer-section">
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/texna_harness?igsh=ZmlzMnNwcTB4eXpn" target="_blank" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/people/Texna/61571191199435/" target="_blank" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="footer-section">
-                <h3 class="footer-title">Contact Us</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        <div class="contact-text">
-                            <p>Plot No 1026, Rd Number 87</p>
-                            <p>GIDC, Sachin, Surat</p>
-                            <p>Gujarat 394230</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        <div class="contact-text">
-                            <a href="tel:+919978617177">+91 9978617177</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-container">
-                <p>&copy; 2024 Texna. All rights reserved.</p>
-                <p>35+ Years of Excellence in Jacquard Harness Systems</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bottom Navigation -->
+    <!-- Fixed Bottom Navigation -->
     <nav class="bottom-nav">
-        <div class="nav-item">
-            <a href="index.html">
-                <img src="SVG/Home Button.svg" alt="Home" class="nav-icon">
-                <span class="nav-text">Home</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="search.html">
-                <img src="SVG/Search Button.svg" alt="Search" class="nav-icon">
-                <span class="nav-text">Search</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="services.html">
-                <img src="SVG/Services Button.svg" alt="Services" class="nav-icon">
-                <span class="nav-text">Services</span>
-            </a>
-        </div>
-
-        <div class="nav-item active">
-            <a href="products.html">
-                <img src="SVG/Products Button.svg" alt="Products" class="nav-icon">
-                <span class="nav-text">Products</span>
-            </a>
-        </div>
-
-        <div class="nav-item">
-            <a href="https://wa.me/919978617177" target="_blank">
-                <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="nav-icon">
-                <span class="nav-text">Contact</span>
-            </a>
-        </div>
+        <a href="index.html" class="nav-item">
+            <img src="SVG/Home Button.svg" alt="Home" class="nav-icon">
+        </a>
+        <a href="search.html" class="nav-item">
+            <img src="SVG/Search Button.svg" alt="Search" class="nav-icon">
+        </a>
+        <a href="services.html" class="nav-item">
+            <img src="SVG/Services Button.svg" alt="Services" class="nav-icon">
+        </a>
+        <a href="products.html" class="nav-item nav-item-with-label active">
+            <img src="SVG/Product Icon.svg" alt="Products" class="nav-icon">
+            <span class="nav-label nav-label-products">Products</span>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" class="nav-item">
+            <img src="SVG/Whatsapp Button.svg" alt="WhatsApp" class="nav-icon">
+        </a>
     </nav>
+
+    <!-- Mobile-First JavaScript -->
     <script src="script.js"></script>
 </body>
-
 </html>

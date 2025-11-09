@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Profile Click</title>
+    <style>
+        .test-button {
+            padding: 20px;
+            margin: 20px;
+            background: blue;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Profile Banner</h1>
+    <div class="test-button" onclick="alert('Click works!'); openProfileBanner('nasir')">
+        Click to test Nasir profile
+    </div>
+    
+    <div id="profileBannerOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
+        <div style="position:relative; width:80%; margin:50px auto; background:white; padding:20px;">
+            <button onclick="closeProfileBanner()" style="position:absolute; top:10px; right:10px;">X</button>
+            <img id="profileBannerImage" src="" style="width:100%;">
+            <div id="profileBannerText" style="padding:20px;"></div>
+        </div>
+    </div>
+    
+    <script>
+        window.openProfileBanner = function(key) {
+            alert('openProfileBanner called with: ' + key);
+            document.getElementById('profileBannerOverlay').style.display = 'block';
+        };
+        
+        window.closeProfileBanner = function() {
+            document.getElementById('profileBannerOverlay').style.display = 'none';
+        };
+        
+        console.log('Test page loaded');
+    </script>
+</body>
+</html>
