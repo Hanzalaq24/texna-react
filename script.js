@@ -18,6 +18,9 @@ function initializeMobileFeatures() {
     
     // Log device info for debugging
     logDeviceInfo();
+    
+    // Set active menu item on page load
+    setActiveMenuItem();
 }
 
 // Add touch support for better mobile experience
@@ -65,8 +68,34 @@ function toggleMenu() {
         // Open menu
         menuOverlay.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Update active menu item when opening
+        setActiveMenuItem();
+        
         console.log('✅ Menu opened');
     }
+}
+
+// Set active menu item based on current page
+function setActiveMenuItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const menuLinks = document.querySelectorAll('.menu-link');
+    
+    menuLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Remove active class from all items
+        link.classList.remove('active');
+        
+        // Add active class to current page
+        if (href === currentPage || 
+            (currentPage === '' && href === 'index.html') ||
+            (currentPage === 'index.html' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+    
+    console.log('✅ Menu active item set for:', currentPage);
 }
 
 // Close menu on escape key

@@ -2920,7 +2920,7 @@ body {
     background: #ffffff;
 }
 
-.menu-link:first-child {
+.menu-link.active {
     background: #343770;
     color: #ffffff;
 }
@@ -2929,7 +2929,7 @@ body {
     background: #f5f5f5;
 }
 
-.menu-link:first-child:hover {
+.menu-link.active:hover {
     background: #4a4d8a;
 }
 
