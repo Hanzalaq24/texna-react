@@ -699,6 +699,7 @@ function openSearch() {
     if (!overlay || !input) return;
     
     overlay.classList.add('active');
+    document.body.classList.add('search-active');
     document.body.style.overflow = 'hidden';
     
     // Focus input and open keyboard
@@ -720,6 +721,7 @@ function closeSearch() {
     if (!overlay) return;
     
     overlay.classList.remove('active');
+    document.body.classList.remove('search-active');
     document.body.style.overflow = '';
     
     // Clear search

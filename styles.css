@@ -2072,7 +2072,9 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 10000;
     display: none;
     overflow-y: auto;
@@ -2080,6 +2082,12 @@ body {
 
 .search-overlay.active {
     display: block;
+}
+
+/* Blur the background content when search is open */
+body.search-active > *:not(.search-overlay) {
+    filter: blur(8px);
+    pointer-events: none;
 }
 
 .search-overlay-content {
