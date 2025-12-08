@@ -589,10 +589,10 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Initialize popup when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    showTexnaPopup();
-});
+// Initialize popup when DOM is loaded - DISABLED
+// document.addEventListener('DOMContentLoaded', function() {
+//     showTexnaPopup();
+// });
 
 console.log('✅ Texna popup banner system initialized');
 
