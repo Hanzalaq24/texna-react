@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 12.86 11.95">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 65)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        fill: url(#linear-gradient);
+      }
+
+      .st2 {
+        fill: #fe0;
+        fill-rule: evenodd;
+      }
+
+      .st3 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="st0" d="M6.43.25c3.16,0,5.73,2.57,5.73,5.73s-2.57,5.73-5.73,5.73S.7,9.14.7,5.97,3.27.25,6.43.25"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="12.79" y1="-.23" x2="1.93" y2="10.37" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#343770"/>
+      <stop offset=".25" stop-color="#373a74"/>
+      <stop offset=".53" stop-color="#424582"/>
+      <stop offset=".84" stop-color="#545699"/>
+      <stop offset="1" stop-color="#6062a9"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <path class="st0" d="M6.43.25c3.16,0,5.73,2.57,5.73,5.73s-2.57,5.73-5.73,5.73S.7,9.14.7,5.97,3.27.25,6.43.25"/>
+    </clipPath>
+  </defs>
+  <g class="st4">
+    <rect class="st1" x=".7" y=".25" width="11.46" height="11.46"/>
+  </g>
+  <g class="st3">
+    <path class="st2" d="M12.74.25h-.19v11.46h.19V.25ZM12.2.25h-.19v11.46h.19V.25ZM11.66.25h-.19v11.46h.19V.25ZM11.12.25h-.19v11.46h.19V.25ZM10.58.25h-.19v11.46h.19V.25ZM10.04.25h-.19v11.46h.19V.25ZM9.5.25h-.19v11.46h.19V.25ZM8.96.25h-.19v11.46h.19V.25ZM8.42.25h-.19v11.46h.19V.25ZM7.88.25h-.19v11.46h.19V.25ZM7.34.25h-.19v11.46h.19V.25ZM6.8.25h-.19v11.46h.19V.25ZM6.25.25h-.19v11.46h.19V.25ZM5.71.25h-.19v11.46h.19V.25ZM5.17.25h-.19v11.46h.19V.25ZM4.63.25h-.19v11.46h.19V.25ZM4.09.25h-.19v11.46h.19V.25ZM3.55.25h-.19v11.46h.19V.25ZM3.01.25h-.19v11.46h.19V.25ZM2.47.25h-.19v11.46h.19V.25ZM1.93.25h-.19v11.46h.19V.25ZM1.39.25h-.19v11.46h.19V.25ZM.85.25h-.19v11.46h.19V.25ZM.31.25H.12v11.46h.19V.25ZM-.23.25h-.19v11.46h.19V.25ZM13.28.25h-.19v11.46h.19V.25Z"/>
+  </g>
+</svg>
