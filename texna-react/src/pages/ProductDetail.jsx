@@ -28,7 +28,7 @@ const ProductDetail = () => {
             </div>
 
             <div className="product-detail-image-container">
-                <img src={product.image} alt={product.title} className="product-detail-image" id="productImage" />
+                <img src={product.image} alt={product.title} className="product-detail-image" id="productImage" loading="eager" />
             </div>
 
             <div className="product-detail-description">

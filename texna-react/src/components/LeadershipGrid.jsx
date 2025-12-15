@@ -59,7 +59,7 @@ const LeadershipGrid = () => {
                     return (
                         <div key={key} className="leader-card" onClick={() => openProfile(key)}>
                             <div className="leader-image-wrapper">
-                                <img src={display.image} alt={display.alt} className="leader-image" />
+                                <img src={display.image} alt={display.alt} className="leader-image" loading="eager" />
                             </div>
                             <h3 className="leader-name">{display.name}</h3>
                             <p className="leader-title">{display.title}</p>

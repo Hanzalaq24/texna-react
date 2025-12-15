@@ -7,13 +7,18 @@ export const featureData = {
     },
     experience: {
         icon: "/SVG/35+ Years of  Expertise.svg",
-        title: "35+ years of experience",
+        title: "35+ Years of Experience",
         text: `Under the expertise of Nasir Khan, Texna delivers top-quality Jala solutions. With 35+ years of experience, Nasir Khan ensures precision and reliability. <br><br>Nasir Khan's team (Texna) provides exceptional service and support. Trust Nasir Khan's expertise for your Jala needs. Nasir Khan's legacy is built on quality and customer satisfaction.`
     },
     service: {
         icon: "/SVG/Quick Service  (Under 24 Hrs).svg",
-        title: "Quick Service (under 24 Hrs.)",
+        title: "Quick Service (<24 Hrs)",
         text: `Experience rapid service with Texna! Our team delivers quick solutions within 24 hours. Get your Jala needs met promptly and efficiently. Trust Texna for timely support.`
+    },
+    patterns: {
+        icon: "/SVG/Jala 4000+ Design.svg",
+        title: "JALA PATTERNS UP TO 4000 DESIGNS",
+        text: `Explore our extensive collection of over 4000 Jala designs. We offer a wide variety of patterns to suit every weaving need, ensuring you find the perfect match for your production requirements. <br><br>Our library includes:<ul><li>Traditional and modern motifs</li><li>Complex and simple geometric patterns</li><li>Customizable options</li></ul>`
     },
     support: {
         icon: "/SVG/Support and  Maintenance.svg",
@@ -208,7 +213,7 @@ export const servicesData = [
         subtitle: '(Annual Maintenance Contract)',
         description: 'Annual Maintenance Contracts to ensure long-term reliability and performance.',
         fullText: 'Our Annual Maintenance Contract ensures your machinery operates at peak performance year-round with scheduled preventive maintenance, priority support, and regular inspections. Minimize downtime and maximize productivity with professional care.',
-        icon: '/Services/AMC%20service.png',
+        icon: '/Services/amc-service.png',
         features: ['Regular Checkups', 'Priority Support', 'Preventive Maintenance', 'Emergency Assistance'],
         link: '/services',
         keywords: ['amc', 'annual', 'maintenance', 'contract', 'consultation']

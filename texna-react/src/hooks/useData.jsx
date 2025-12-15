@@ -23,7 +23,7 @@ export const useData = () => {
                 const { data: dbFeatures, error: featError } = await supabase.from('features').select('*');
                 if (!featError && dbFeatures && dbFeatures.length > 0) {
                     // Convert back to object format { key: { ... } }
-                    const featObj = {};
+                    const featObj = { ...localFeatureData };
                     dbFeatures.forEach(f => {
                         featObj[f.key] = {
                             title: f.title,

@@ -35,7 +35,7 @@ const Services = () => {
                         <div key={index} className="service-card" onClick={() => openPopup(service)}>
                             <div className="service-card-header">
                                 <div className="service-card-icon">
-                                    <img src={service.icon} alt={service.title} className="service-icon-img" />
+                                    <img src={service.icon} alt={service.title} className="service-icon-img" loading="eager" />
                                 </div>
                                 <h2 className="service-card-title">
                                     {service.title}

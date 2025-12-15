@@ -305,29 +305,32 @@ body {
 
 .features-grid {
     display: flex;
+    flex-direction: column;
     gap: 8px;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
 }
 
 /* Feature Card */
 .feature-card {
-    background: linear-gradient(180deg, #6062A9 0%, #343770 100%);
+    background: linear-gradient(135deg, #6062A9 0%, #343770 100%);
     border-radius: 12px;
-    padding: 12px 6px;
-    text-align: center;
+    padding: 12px 20px;
+    text-align: left;
     color: #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(52, 55, 112, 0.15);
+    box-shadow: 0 4px 10px rgba(52, 55, 112, 0.2);
     flex: 1;
     min-width: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    min-height: 110px;
+    min-height: 80px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feature-card:active {
@@ -336,13 +339,14 @@ body {
 
 /* Feature Icon */
 .feature-icon {
-    width: 50px;
-    height: 45px;
-    margin: 0 auto 8px auto;
+    width: 70px;
+    height: 70px;
+    margin: 0 20px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .feature-icon img {
@@ -354,13 +358,15 @@ body {
 /* Feature Title */
 .feature-title {
     color: #FFFFFF;
-    font-size: 9px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
-    text-align: center;
+    text-align: left;
     word-wrap: break-word;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== PRODUCTS SHOWCASE SECTION ===== */
@@ -394,7 +400,7 @@ body {
 .machine-image {
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 0;
     display: block;
     object-fit: cover;
     object-position: center;
@@ -472,19 +478,19 @@ body {
 
 /* Product Label */
 .product-label {
-    padding: 2px 2px 2px 2px;
+    padding: 4px 2px;
     /* Balanced padding, bottom 2px for descenders */
     background: transparent;
     text-align: center;
     margin: 0;
     font-family: 'Poppins', Arial, sans-serif;
-    font-size: 8px;
+    font-size: 10px;
     /* Restoring to 8px for better clarity if space permits, or 7.5px */
-    font-weight: 500;
+    font-weight: 700;
     /* Not bold (700), but readable (500) */
     color: #333;
     text-transform: uppercase;
-    letter-spacing: -0.1px;
+    letter-spacing: 0px;
     /* Slightly relaxed spacing */
     line-height: normal;
     /* Use normal line height for safety */
@@ -967,9 +973,10 @@ body {
 }
 
 .nav-label {
-    display: none;
-    font-size: 10px;
+    display: block;
+    font-size: 11px;
     font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 700;
     color: #6B7280;
     margin-top: 2px;
 }
@@ -1049,14 +1056,7 @@ body {
         min-height: 100px;
     }
 
-    .feature-icon {
-        width: 45px;
-        height: 40px;
-    }
 
-    .feature-title {
-        font-size: 8px;
-    }
 
     .products-wrapper {
         gap: 8px;
@@ -1097,7 +1097,7 @@ body {
     }
 
     .nav-label {
-        font-size: 8px;
+        font-size: 10px;
     }
 }
 
@@ -1137,14 +1137,7 @@ body {
         min-height: 120px;
     }
 
-    .feature-icon {
-        width: 55px;
-        height: 50px;
-    }
 
-    .feature-title {
-        font-size: 10px;
-    }
 
     .products-wrapper {
         gap: 15px;

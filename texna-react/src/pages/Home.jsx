@@ -2,6 +2,7 @@
 import React from 'react';
 import HeroSlider from '../components/HeroSlider';
 import FeaturesGrid from '../components/FeaturesGrid';
+
 import ProductsShowcase from '../components/ProductsShowcase';
 import ABCSection from '../components/ABCSection';
 import LeadershipGrid from '../components/LeadershipGrid';
@@ -12,6 +13,7 @@ const Home = () => {
         <main>
             <HeroSlider />
             <FeaturesGrid />
+
             <ProductsShowcase />
             <ABCSection />
             <LeadershipGrid />

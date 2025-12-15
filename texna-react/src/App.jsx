@@ -10,6 +10,7 @@ import ProductDetail from './pages/ProductDetail';
 import { AuthProvider } from './contexts/AuthContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Recovery from './pages/Recovery';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="product-detail" element={<ProductDetail />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="recovery" element={<Recovery />} />
         </Route>
       </Routes>
     </AuthProvider>

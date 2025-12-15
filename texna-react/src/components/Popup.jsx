@@ -10,7 +10,7 @@ const Popup = ({ isOpen, onClose, data }) => {
                 <button className="popup-close" onClick={onClose}>&times;</button>
                 <div className="popup-header">
                     <div className="popup-icon">
-                        <img src={data.icon} alt={data.title} />
+                        <img src={data.icon} alt={data.title} loading="eager" />
                     </div>
                     <h2 className="popup-title">{data.title}</h2>
                 </div>

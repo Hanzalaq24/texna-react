@@ -88,17 +88,17 @@ const HeroSlider = () => {
                 >
                     {/* Slide 1 */}
                     <div className="hero-slide">
-                        <img src="/Hero banner/01.webp" alt="Texna Hero Banner 1" className="hero-slide-image" />
+                        <img src="/Hero banner/01.webp" alt="Texna Hero Banner 1" className="hero-slide-image" loading="eager" />
                     </div>
 
                     {/* Slide 2 */}
                     <div className="hero-slide">
-                        <img src="/Hero banner/02.webp" alt="Texna Hero Banner 2" className="hero-slide-image" />
+                        <img src="/Hero banner/02.webp" alt="Texna Hero Banner 2" className="hero-slide-image" loading="eager" />
                     </div>
 
                     {/* Slide 3 */}
                     <div className="hero-slide">
-                        <img src="/Hero banner/03.webp" alt="Texna Hero Banner 3" className="hero-slide-image" />
+                        <img src="/Hero banner/03.webp" alt="Texna Hero Banner 3" className="hero-slide-image" loading="eager" />
                     </div>
                 </div>
 

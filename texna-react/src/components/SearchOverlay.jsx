@@ -129,7 +129,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                         ) : (
                             results.map((item, idx) => (
                                 <div key={idx} className="search-result-card" onClick={() => navigateToResult(item)}>
-                                    <img src={item.image} alt={item.title} className="search-result-image" />
+                                    <img src={item.image} alt={item.title} className="search-result-image" loading="eager" />
                                     <div className="search-result-content">
                                         <h3 className="search-result-title">{item.title}</h3>
                                         <p className="search-result-description">{item.description}</p>

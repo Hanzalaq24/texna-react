@@ -18,6 +18,7 @@ const ProfilePopup = ({ isOpen, onClose, data, profileKey }) => {
                         src={data.image}
                         alt={data.heading}
                         className="profile-banner-image"
+                        loading="eager"
                     />
                     {data.heading && (
                         <div className={`profile-banner-heading ${alignmentClass}`}>

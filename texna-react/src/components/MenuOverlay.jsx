@@ -18,7 +18,7 @@ const MenuOverlay = ({ isOpen, closeMenu, openSearch }) => {
             <div className="menu-content">
                 <div className="menu-header">
                     <div className="menu-logo">
-                        <img src="/SVG/Texna Logo TM.svg" alt="Texna Logo" />
+                        <img src="/SVG/Texna Logo TM.svg" alt="Texna Logo" loading="eager" />
                     </div>
                     <button className="menu-close" onClick={closeMenu}>&times;</button>
                 </div>

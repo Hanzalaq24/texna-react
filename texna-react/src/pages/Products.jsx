@@ -22,7 +22,7 @@ const Products = () => {
                     {products.map((product, index) => (
                         <div key={index} className="product-card-item" onClick={() => viewProductDetail(product)}>
                             <div className="product-image-container">
-                                <img src={product.image} alt={product.title} className="product-img" />
+                                <img src={product.image} alt={product.title} className="product-img" loading="eager" />
                             </div>
                             <div className="product-info-box">
                                 <h3 className="product-name">{product.title}</h3>

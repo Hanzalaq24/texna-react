@@ -1,10 +1,17 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { productsData } from '../data';
 
 const ProductsShowcase = () => {
     const mainImageRef = useRef(null);
     const gridRef = useRef(null);
+
+    // Find product data objects
+    const guideBoard = productsData.find(p => p.title === 'Guide Board');
+    const harnessCord = productsData.find(p => p.title === 'Harness Cord');
+    const comberBoard = productsData.find(p => p.title === 'Comber Board');
+    const wireHealds = productsData.find(p => p.title === 'Wire Healds (Raj)');
 
     useEffect(() => {
         const matchHeight = () => {
@@ -47,6 +54,7 @@ const ProductsShowcase = () => {
                             src="/Texna Machine.webp"
                             alt="Jacquard Machine"
                             className="machine-image"
+                            loading="eager"
                         />
                     </Link>
                 </div>
@@ -55,26 +63,26 @@ const ProductsShowcase = () => {
                 <div className="products-right">
                     <div className="products-grid" ref={gridRef}>
                         {/* Product 1 */}
-                        <Link to="/products" className="product-item">
-                            <img src="/Products Photos/Products-1.webp" alt="Guide Board" className="product-image" />
+                        <Link to="/product-detail" state={{ product: guideBoard }} className="product-item">
+                            <img src="/Products Photos/Products-1.webp" alt="Guide Board" className="product-image" loading="eager" />
                             <span className="product-label">Guide Board</span>
                         </Link>
 
                         {/* Product 2 */}
-                        <Link to="/products" className="product-item">
-                            <img src="/Products Photos/Products-2 copy.webp" alt="Harness Cord" className="product-image" />
+                        <Link to="/product-detail" state={{ product: harnessCord }} className="product-item">
+                            <img src="/Products Photos/Products-2 copy.webp" alt="Harness Cord" className="product-image" loading="eager" />
                             <span className="product-label">Harness Cord</span>
                         </Link>
 
                         {/* Product 3 */}
-                        <Link to="/products" className="product-item">
-                            <img src="/Products Photos/Products-3 copy.webp" alt="Comber Board" className="product-image" />
+                        <Link to="/product-detail" state={{ product: comberBoard }} className="product-item">
+                            <img src="/Products Photos/Products-3 copy.webp" alt="Comber Board" className="product-image" loading="eager" />
                             <span className="product-label">Comber Board</span>
                         </Link>
 
                         {/* Product 4 */}
-                        <Link to="/products" className="product-item">
-                            <img src="/Products Photos/Products-5 copy.webp" alt="Wire (Raj)" className="product-image" />
+                        <Link to="/product-detail" state={{ product: wireHealds }} className="product-item">
+                            <img src="/Products Photos/Products-5 copy.webp" alt="Wire (Raj)" className="product-image" loading="eager" />
                             <span className="product-label">Wire (Raj)</span>
                         </Link>
                     </div>

@@ -23,12 +23,12 @@ const Header = ({ toggleMenu }) => {
 
                 {/* Centered Logo */}
                 <Link to="/">
-                    <img src="/SVG/Texna Logo TM.svg" alt="Texna Logo" className="logo" style={{ cursor: 'pointer' }} />
+                    <img src="/SVG/Texna Logo TM.svg" alt="Texna Logo" className="logo" style={{ cursor: 'pointer' }} loading="eager" />
                 </Link>
 
                 {/* Hamburger Menu on Right for Detail Page */}
                 <button className="hamburger-menu" onClick={toggleMenu}>
-                    <img src="/SVG/Menu Line.svg" alt="Menu" />
+                    <img src="/SVG/Menu Line.svg" alt="Menu" loading="eager" />
                 </button>
             </header>
         );
@@ -39,12 +39,12 @@ const Header = ({ toggleMenu }) => {
         <header className="header">
             {/* Hamburger Menu Button on Left */}
             <button className="hamburger-menu" onClick={toggleMenu}>
-                <img src="/SVG/Menu Line.svg" alt="Menu" />
+                <img src="/SVG/Menu Line.svg" alt="Menu" loading="eager" />
             </button>
 
             {/* Centered Logo */}
             <Link to="/">
-                <img src="/SVG/Texna Logo TM.svg" alt="Texna Logo" className="logo" style={{ cursor: 'pointer' }} />
+                <img src="/SVG/Texna Logo TM.svg" alt="Texna Logo" className="logo" style={{ cursor: 'pointer' }} loading="eager" />
             </Link>
         </header>
     );
